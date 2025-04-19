@@ -74,4 +74,20 @@ public class HelloController {
         return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz!";
     }
 
+/*UC5 ->
+        * Make REST Call to show Hello Mark
+	   	Taylor from BridgeLabz
+	   	- Use PUT Request Method and pass first name as
+	   	Path Variable and last name as Query Parameter
+	   	- Use CURL to demonstrate the REST API Call
+	   	- curl -X PUT
+	   	localhost:8080/hello/put/Mark/?lastName=Taylor
+	   	-w "\n"*/
+
+
+    // PUT Request: /hello/put/{firstName}?lastName={lastName}
+    @PutMapping("/hello/put/{firstName}")
+    public String sayHello(@PathVariable String firstName, @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
+    }
 }
