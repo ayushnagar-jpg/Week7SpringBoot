@@ -52,4 +52,26 @@ public class HelloController {
         return "Hello " + name + " from BridgeLabz!";
     }
 
+       /*UC4 -> Make REST Call to show Hello Mark
+   	Taylor from BridgeLabz
+   	- Use POST Request Method and pass first name and
+   	last name in the Body
+   	- Create User DTO Bean with firstName and lastName as
+   	attributes.
+   	- Use CURL to demonstrate the REST API Call
+   	- curl -X POST -H "Content-Type: application/json" -d
+   	'{"firstName": ”Mark","lastName": ”Taylor"}'
+   	"http://localhost:8080/hello/post" -w "\n"*/
+
+    // POST: http://localhost:8080/hello/post
+
+    // JSON Body: { "firstName": "Ayush", "lastName": "Nagar" }
+
+
+    // POST method using request body
+    @PostMapping("/hello/post")
+    public String sayHelloWithPost(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz!";
+    }
+
 }
